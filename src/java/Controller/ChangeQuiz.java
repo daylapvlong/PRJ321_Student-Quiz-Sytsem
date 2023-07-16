@@ -18,7 +18,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
+
+import java.util.*;
 
 /**
  *
@@ -48,7 +49,10 @@ public class ChangeQuiz extends HttpServlet {
         
         Quiz quiz = dao.getQuizById(quizid);
         ArrayList<Question> listQuestion = qdao.getListQuestion(quizid);
-        ArrayList<Answer> listAnswer = adao.getListAnswer(quzid);
+        Map<Integer, List<Answer>> listAnswer = new HashMap<>();
+        for (Question question : listQuestion) {
+            listAnswer.put(question.getQuestionId(), adao.getListAnswer(question.getQuestionId()));
+        }
 
         request.setAttribute("displayquiz", listQuestion);
         request.setAttribute("displayanswer", listAnswer);
@@ -67,13 +71,20 @@ public class ChangeQuiz extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String quizname = request.getParameter("quizname");
-        String Duration = request.getParameter("time");
-        String quizid = request.getParameter("quizid");
-
-        ChangeDAO dao = new ChangeDAO();
-        dao.updateQuiz(quizid, quizname, Duration);
-        response.sendRedirect("home");
+        String quizId = request.getParameter("quizId");
+        String deleteId = request.getParameter("delete");
+        String deleteAll = request.getParameter("delete-all");
+        if (deleteId != null) {
+            int id = Integer.parseInt(deleteId);
+            QuestionDAO questionDAO = new QuestionDAO();
+            questionDAO.delete(id);
+        } else if (deleteAll != null) {
+            String [] selected = request.getParameterValues("selected-question");
+            int [] selectedId = Arrays.stream(selected == null? new String[0] : selected).mapToInt(Integer::parseInt).toArray();
+            QuestionDAO questionDAO = new QuestionDAO();
+            questionDAO.deleteAll(selectedId);
+        }
+        response.sendRedirect("changeQuiz?quizid=" + quizId);
     }
 
     /**
