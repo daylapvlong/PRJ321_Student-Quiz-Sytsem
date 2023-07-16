@@ -115,6 +115,9 @@
                                             <th scope="col" class="quiz_else">
                                                 Update Test?
                                             </th>
+                                            <th scope="col" class="quiz_else">
+                                                Delete Quiz?
+                                            </th>
                                         </c:when>
                                         <c:otherwise>
                                             <th scope="col" class="quiz_else">
@@ -143,7 +146,12 @@
                                             <c:when test="${sessionScope.role eq '1'}">
                                                 <td class="px-6 py-4">
                                                     <a href="changeQuiz?quizid=${o.quizId}" class="startbtn">Update</a>
-                                                </td>                                      
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    <a href="deleteQuiz?quizid=${o.quizId}" class="startbtn">
+                                                        <i class="material-icons" style="font-size:26px">delete</i>
+                                                    </a>
+                                                </td>
                                             </c:when>
                                             <c:otherwise>
                                                 <td class="px-6 py-4">

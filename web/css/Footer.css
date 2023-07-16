@@ -6,7 +6,6 @@ footer {
     background: -moz-linear-gradient(135deg, #9df0ff, #4158d0);
     background: linear-gradient(135deg, #9df0ff, #4158d0);
     padding: 1.5rem 2rem;
-    height: 110%;
     overflow: hidden;
     bottom: 0px;
 }
