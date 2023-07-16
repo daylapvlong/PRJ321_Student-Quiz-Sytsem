@@ -47,7 +47,7 @@
                                         <a class="" href="changeAccount?accid=${o.id}" onclick="redirectToUpdate()">Edit
                                             Profile</a>
                                         <p class="profile_body_slash">/</p>
-                                        <a class="" href="">View Activity</a>
+                                        <a class="" href="Result.jsp">View Activity</a>
                                     </c:if>
                                 </c:forEach>
                             </div>

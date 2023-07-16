@@ -41,7 +41,6 @@
                         </div>
                         <div class="button-container">
                             <button class="update-button">Update</button>
-                            <a href="#" class="update-button">Delete</a>
                         </div>
                     </form>
                 </div>

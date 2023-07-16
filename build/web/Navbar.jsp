@@ -15,7 +15,7 @@
             <nav class="navbar">
                 <div class="navbar_left">
                     <a class="navbar_icon" href="WelcomePage.jsp">Home</a>
-                    <a class="navbar_icon" href="#about">About us</a>
+                    <a class="navbar_icon" href="About.jsp">About us</a>
                     <a class="navbar_icon" href="${sessionScope.acc == null ? 'Login.jsp' : 'home'}">Courses</a>
                     <c:choose>
                         <c:when test="${sessionScope.role eq '1'}">
