@@ -57,6 +57,14 @@
                     <div class="body_content_container">
                         <div class="dropdown">
                             <button onclick="myFunction()" class="dropbtn">Semester</button>
+                            <c:choose>
+                                <c:when test="${sessionScope.role eq '1'}">
+                                    <button onclick="redirectToCreate()" class="dropbtn">Create Course</button>
+                                </c:when>
+                                <c:otherwise>
+                                </c:otherwise>
+                            </c:choose>
+
                             <div id="myDropdown" class="dropdown-content">
                                 <c:forEach items="${listCategory}" var="o">
                                     <a href="category?cid=${o.categoryId}" class="active">${o.categoryName}</a>

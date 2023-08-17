@@ -7,15 +7,13 @@ footer {
     background: linear-gradient(135deg, #9df0ff, #4158d0);
     padding: 1.5rem 2rem;
     overflow: hidden;
-    bottom: 0px;
+    bottom: 0;
 }
 
 .logo {
     color: white;
     font-size: 3rem;
     font-weight: 500;
-    margin-bottom: 1rem;
-    padding: 10px 0;
 }
 
 .paragraph {

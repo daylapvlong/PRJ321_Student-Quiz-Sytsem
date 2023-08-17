@@ -42,17 +42,13 @@ public class QuizCtrl extends HttpServlet {
         
         CourseDAO cdao = new CourseDAO();
         QuestionDAO qdao = new QuestionDAO();
-//        AnswerDAO adao = new AnswerDAO();
         
         Quiz quiz = cdao.getQuizById(quizId);
         ArrayList<Question> listQuestion = qdao.getListQuestion(quizId);
-//        ArrayList<Answer> listAnswer = adao.getListAnswer(questionId);
-//        ArrayList<Answer> listCorrectAnswer = adao.getCorrectAnswer(questionId);
-     
+
         request.setAttribute("quiz", quiz);
         request.setAttribute("listQuiz", listQuestion);
-//        request.setAttribute("listAnswer", listAnswer);
-//        request.setAttribute("correctAnswer", listCorrectAnswer);
+
         request.getRequestDispatcher("Quiz.jsp").forward(request, response);
     }
 

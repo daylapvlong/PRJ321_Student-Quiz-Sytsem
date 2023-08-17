@@ -89,7 +89,7 @@
                     <c:choose>
                         <c:when test="${sessionScope.role eq '1'}">
                             <div class="create">
-                                <a class="create-btn" href="Create.jsp">Create
+                                <a class="create-btn" href="createQuiz?courseid=${course.courseId}">Create
                                     quiz</a>
                             </div>
                         </c:when>

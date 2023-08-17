@@ -25,3 +25,11 @@ function redirectToUpdate() {
     // Prevent the default link behavior
     return false;
 }
+
+function redirectToCreate() {
+    // Redirect to Update.jsp
+    window.location.href = "CreateCourse.jsp";
+
+    // Prevent the default link behavior
+    return false;
+}

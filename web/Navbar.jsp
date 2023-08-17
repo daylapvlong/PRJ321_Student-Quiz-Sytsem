@@ -13,16 +13,22 @@
 
         <body>
             <nav class="navbar">
+                <div class="logo">
+                    <a href="WelcomePage.jsp">
+                        <h1 class="logo_heading">Quizzle</h1>
+                    </a>
+                </div>
                 <div class="navbar_left">
                     <a class="navbar_icon" href="WelcomePage.jsp">Home</a>
                     <a class="navbar_icon" href="About.jsp">About us</a>
                     <a class="navbar_icon" href="${sessionScope.acc == null ? 'Login.jsp' : 'home'}">Courses</a>
                     <c:choose>
                         <c:when test="${sessionScope.role eq '1'}">
-                            <a class="navbar_icon"
-                                href="${sessionScope.acc == null ? 'Login.jsp' : 'CreateCourse.jsp'}">Create course</a>
+                            <a class="navbar_icon" href="${sessionScope.acc == null ? 'Login.jsp' : 'Result.jsp'}">Activity</a>
+                            <a class="navbar_icon" href="${sessionScope.acc == null ? 'Login.jsp' : '#'}">Contact Us</a>
                         </c:when>
                         <c:otherwise>
+                            <a class="navbar_icon" href="${sessionScope.acc == null ? 'Login.jsp' : 'Result.jsp'}">Activity</a>
                             <a class="navbar_icon" href="${sessionScope.acc == null ? 'Login.jsp' : '#'}">Contact Us</a>
                         </c:otherwise>
                     </c:choose>

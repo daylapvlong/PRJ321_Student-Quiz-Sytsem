@@ -1,6 +1,7 @@
 <%-- Created by IntelliJ IDEA. User: admin's Date: 7/16/2023 Time: 4:25 PM To change this template use File | Settings |
     File Templates. --%>
-    <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@page contentType="text/html" pageEncoding="UTF-8" %>
         <html>
 
         <head>
@@ -10,6 +11,17 @@
 
         <body>
             <jsp:include page="Navbar.jsp"></jsp:include>
+            <div class="result_header">
+                <c:choose>
+                    <c:when test="${sessionScope.role eq '1'}">
+                        <h1 class="heading">Admin Result</h1>
+                    </c:when>
+                    <c:otherwise>
+                        <h1 class="heading">Student Result</h1>
+                    </c:otherwise>
+                </c:choose>
+            </div>
+
             <div class="quiz_table">
                 <table class="quiz_table_content">
                     <thead class="quiz_table_header">
